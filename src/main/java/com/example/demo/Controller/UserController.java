@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Dto.UserDto;
 import com.example.demo.Entity.User;
 import com.example.demo.Service.UserService;
 
@@ -39,5 +40,9 @@ public class UserController {
 	    public String deleteUser(@PathVariable Long id) {
 	        userService.deleteUser(id);
 	        return "User deleted successfully";
+	    }
+	    @PostMapping
+	    public User saveUser(@RequestBody UserDto userDto) {
+	        return userService.saveUser(userDto);
 	    }
 }
