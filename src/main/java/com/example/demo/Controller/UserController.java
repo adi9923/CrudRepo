@@ -21,27 +21,27 @@ public class UserController {
 	   @Autowired
 	    private UserService userService;
 
-	    @PostMapping
+	    @PostMapping("/post")
 	    public User saveUser(@RequestBody User user) {
 	        return userService.saveUser(user);
 	    }
 
-	    @GetMapping
+	    @GetMapping("/get")
 	    public List<User> getAllUsers() {
 	        return userService.getAllUsers();
 	    }
 
-	    @GetMapping("/{id}")
+	    @GetMapping("getby/{id}")
 	    public Optional<User> getUserById(@PathVariable Long id) {
 	        return userService.getUserById(id);
 	    }
 
-	    @DeleteMapping("/{id}")
+	    @DeleteMapping("deletby/{id}")
 	    public String deleteUser(@PathVariable Long id) {
 	        userService.deleteUser(id);
 	        return "User deleted successfully";
 	    }
-	    @PostMapping
+	    @PostMapping("/getdto")
 	    public User saveUser(@RequestBody UserDto userDto) {
 	        return userService.saveUser(userDto);
 	    }
